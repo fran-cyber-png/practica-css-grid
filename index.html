@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Me amas? 💗</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- capas de fondo -->
+  <div class="bg-dots" aria-hidden="true"></div>
+  <div class="floaters" id="floaters" aria-hidden="true"></div>
+  <canvas id="fx" aria-hidden="true"></canvas>
+
+  <!-- personajes alrededor -->
+  <div class="cast" id="cast">
+    <button class="char c-tl" data-say="¡Holi! 👋" style="--d:0s"><img src="assets/kitty_saludo.png" alt="Hello Kitty saludando"></button>
+    <button class="char c-ml" data-say="Dile que sí 🙏" style="--d:.6s"><img src="assets/melody_rezo.png" alt="My Melody"></button>
+    <button class="char c-bl" data-say="¡Helado de amor! 🍦" style="--d:1.2s"><img src="assets/purin_helado.png" alt="Pompompurin con helado"></button>
+    <button class="char c-tr" data-say="Flechazo 💘" style="--d:.3s"><img src="assets/cinna_cupido.png" alt="Cinnamoroll cupido"></button>
+    <button class="char c-mr" data-say="Jijiji 💜" style="--d:.9s"><img src="assets/kuromi_feliz.png" alt="Kuromi feliz"></button>
+    <button class="char c-br" data-say="¿Una fresita? 🍓" style="--d:1.5s"><img src="assets/kitty_fresa.png" alt="Hello Kitty con fresa"></button>
+    <button class="char c-bc" data-say="Miau~ 🐾" style="--d:1.8s"><img src="assets/chococat.png" alt="Chococat"></button>
+  </div>
+
+  <!-- tarjeta central -->
+  <main class="card" id="card">
+    <img class="bow" src="assets/lazo.png" alt="" aria-hidden="true">
+
+    <section class="state is-active" id="ask">
+      <img class="hero" id="hero" src="assets/kitty_globos.png" alt="Hello Kitty con globos de corazón">
+      <h1 class="title">¿Me amas?</h1>
+      <p class="sub" id="sub">Responde con el corazón 💕</p>
+      <div class="actions">
+        <button class="btn btn-yes" id="yes" aria-label="Sí"><span>Sí</span> 💖</button>
+        <button class="btn btn-no" id="no">No</button>
+      </div>
+    </section>
+
+    <section class="state" id="yesState" aria-live="polite">
+      <div class="duo">
+        <img src="assets/kitty_osito.png" alt="Hello Kitty guiñando con su osito">
+        <img src="assets/kuromi_enamorada.png" alt="Kuromi enamorada">
+      </div>
+      <h2 class="title mid">¡Yo también te amo!</h2>
+      <p class="sub">Sabía que dirías que sí 🥰💗</p>
+      <div class="actions">
+        <button class="btn btn-ghost" data-back>Preguntar otra vez</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- trampa del "No": diálogo de súplica -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <img src="assets/melody_rezo.png" alt="My Melody suplicando">
+      <h3 id="modalTitle">¿De verdad vas a romperle el corazón a My Melody?</h3>
+      <p>Ella cree que sí me amas 🥺</p>
+      <div class="actions">
+        <button class="btn btn-yes" id="modalYes">Me arrepentí 💖</button>
+        <button class="btn btn-insist" id="modalNo">Sí, insisto 😤</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="mute" id="mute" aria-label="Silenciar sonidos" title="Sonido">🔊</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
