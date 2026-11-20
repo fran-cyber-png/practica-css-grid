@@ -3,6 +3,15 @@
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* nombre especial: cada letra en su propio span para la ola de colores */
+  $$(".name[data-name]").forEach((el) => {
+    const name = el.dataset.name;
+    el.setAttribute("aria-label", name);
+    el.innerHTML = [...name]
+      .map((c, i) => `<span class="ch" aria-hidden="true" style="--i:${i}">${c}</span>`)
+      .join("");
+  });
+
   /* ---------------- sonido (sintetizado, sin archivos) ---------------- */
   let actx = null;
   let muted = false;
